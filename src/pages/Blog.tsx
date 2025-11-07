@@ -7,36 +7,42 @@ const Blog = () => {
       description: "Learn the fundamentals of building modern web applications with React and TypeScript. Covers setup, basic concepts, and best practices.",
       category: "Web",
       slug: "react-typescript-basics",
+      link: "https://react.dev/learn",
     },
     {
       title: "Unity Game Development Essentials",
       description: "Master the core concepts of game development using Unity engine and C#. From basics to advanced techniques.",
       category: "Game",
       slug: "unity-essentials",
+      link: "https://docs.unity3d.com/Manual/index.html",
     },
     {
       title: "Building Mobile Apps with Flutter",
       description: "Create beautiful cross-platform mobile applications using Flutter framework. Complete guide from setup to deployment.",
       category: "App",
       slug: "flutter-mobile-apps",
+      link: "https://docs.flutter.dev/",
     },
     {
       title: "Advanced React Patterns",
       description: "Deep dive into advanced React patterns and techniques for building scalable applications.",
       category: "Web",
       slug: "advanced-react-patterns",
+      link: "https://react.dev/learn",
     },
     {
       title: "Game Physics with Unity",
       description: "Understanding and implementing physics systems in Unity for realistic game mechanics.",
       category: "Game",
       slug: "unity-physics",
+      link: "https://docs.unity3d.com/Manual/PhysicsSection.html",
     },
     {
       title: "State Management in Flutter",
       description: "Comprehensive guide to state management solutions in Flutter applications.",
       category: "App",
       slug: "flutter-state-management",
+      link: "https://docs.flutter.dev/data-and-backend/state-mgmt",
     },
   ];
 

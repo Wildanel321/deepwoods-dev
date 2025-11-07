@@ -9,9 +9,10 @@ interface BlogCardProps {
   description: string;
   category: string;
   slug: string;
+  link: string;
 }
 
-const BlogCard = ({ title, description, category, slug }: BlogCardProps) => {
+const BlogCard = ({ title, description, category, slug, link }: BlogCardProps) => {
   return (
     <Card className="group transition-all duration-300 hover:shadow-elevated hover:-translate-y-1">
       <CardHeader>
@@ -25,10 +26,10 @@ const BlogCard = ({ title, description, category, slug }: BlogCardProps) => {
       </CardHeader>
       <CardFooter>
         <Button asChild variant="ghost" className="group/btn">
-          <Link to={`/blog/${slug}`}>
+          <a href={link} target="_blank" rel="noopener noreferrer">
             Baca Selengkapnya
             <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover/btn:translate-x-1" />
-          </Link>
+          </a>
         </Button>
       </CardFooter>
     </Card>

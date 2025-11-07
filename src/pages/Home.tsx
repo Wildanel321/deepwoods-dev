@@ -31,28 +31,12 @@ const Home = () => {
   // Mock data for featured projects
   const featuredProjects = [
     {
-      title: "E-Commerce Platform",
-      description: "Full-stack e-commerce solution with React, Node.js, and PostgreSQL",
-      image: "https://images.unsplash.com/photo-1557821552-17105176677c?w=800&h=600&fit=crop",
-      demoUrl: "https://demo.example.com",
+      title: "Website Kelas",
+      description: "website kelas dibuat dengan sepenuh hati dan  profesional karena gabut",
+      image: "https://i.ibb.co.com/j9chRn6S/web.png",
+      demoUrl: "https://class.dwidhasa.my.id",
       githubUrl: "https://github.com",
       tags: ["React", "Node.js", "PostgreSQL"],
-    },
-    {
-      title: "Adventure RPG Game",
-      description: "2D adventure game built with Unity and C#",
-      image: "https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=800&h=600&fit=crop",
-      demoUrl: "https://demo.example.com",
-      githubUrl: "https://github.com",
-      tags: ["Unity", "C#", "2D"],
-    },
-    {
-      title: "Fitness Tracking App",
-      description: "Cross-platform mobile app for fitness tracking and workout planning",
-      image: "https://images.unsplash.com/photo-1461088945293-0c17689e48ac?w=800&h=600&fit=crop",
-      demoUrl: "https://demo.example.com",
-      githubUrl: "https://github.com",
-      tags: ["Flutter", "Firebase", "Mobile"],
     },
   ];
 

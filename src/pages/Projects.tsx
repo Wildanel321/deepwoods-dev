@@ -5,7 +5,7 @@ const Projects = () => {
     {
       title: "Absensi Smart Flow",
       description: "website sistem Absensi Siswa yang terintergrasi dengan rfid",
-      image: "https://images.unsplash.com/photo-1557821552-17105176677c?w=800&h=600&fit=crop",
+      image: "https://i.ibb.co.com/kVKyyF61/absensi.png",
       demoUrl: "https://radar.wildanstore.my.id",
       githubUrl: "https://github.com",
       tags: ["React", "Node.js", "PostgreSQL", "Stripe"],
@@ -13,7 +13,7 @@ const Projects = () => {
     {
       title: "Website My Class",
       description: "Website yang saya rancang untuk official website keals dwidhasa karena gabut dan skill nya cuman web dev ya akhirnya jadi deh",
-      image: "https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=800&h=600&fit=crop",
+      image: "https://i.ibb.co.com/j9chRn6S/web.png",
       demoUrl: "https://class.dwidhasa.my.id",
       githubUrl: "https://github.com/Wildanel321",
       tags: ["Tailwind", "JSX", "OpenAI", "React"],
@@ -21,7 +21,7 @@ const Projects = () => {
     {
       title: "Music Players",
       description: "Website ini dikembangkan dikarenakan tugas informatika sebelumnya",
-      image: "https://images.unsplash.com/photo-1461088945293-0c17689e48ac?w=800&h=600&fit=crop",
+      image: "https://i.ibb.co.com/LhQ7twM4/music1.png",
       demoUrl: "https://music.wildanstore.my.id",
       githubUrl: "https://github.com",
       tags: ["Flutter", "Firebase", "Mobile", "Health"],
@@ -29,16 +29,16 @@ const Projects = () => {
     {
       title: "Task Management Dashboard",
       description: "Modern task management web application to do list",
-      image: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=800&h=600&fit=crop",
+      image: "https://i.ibb.co.com/DgVtphKm/todolist.png",
       demoUrl: "https://sec.wildanstore.my.id",
       githubUrl: "https://github.com",
       tags: ["React", "TypeScript", "Tailwind"],
     },
     {
-      title: "Puzzle Mobile Game",
-      description: "Addictive puzzle game with 100+ levels. Built using Unity with optimized performance for mobile devices.",
-      image: "https://images.unsplash.com/photo-1511512578047-dfb367046420?w=800&h=600&fit=crop",
-      demoUrl: "https://demo.example.com",
+      title: "Teka-Teki Web Game",
+      description: "Web game buatan anak bangsa kalau mau coba boleh kok",
+      image: "https://i.ibb.co.com/0yWWYrLQ/Screenshot-from-2025-11-07-19-50-29.png",
+      demoUrl: "https://game.dwidhasa.my.id",
       githubUrl: "https://github.com",
       tags: ["Unity", "Mobile", "Game"],
     },

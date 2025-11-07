@@ -13,8 +13,8 @@ const About = () => {
   ];
 
   const socialLinks = [
-    { name: "GitHub", icon: Github, url: "https://github.com", color: "hover:text-[#333]" },
-    { name: "YouTube", icon: Youtube, url: "https://youtube.com", color: "hover:text-[#FF0000]" },
+    { name: "GitHub", icon: Github, url: "https://github.com/wildanel321", color: "hover:text-[#333]" },
+    { name: "YouTube", icon: Youtube, url: "https://youtube.com/Wildanelgato2", color: "hover:text-[#FF0000]" },
     { name: "Email", icon: Mail, url: "mailto:hello@devforest.com", color: "hover:text-primary" },
   ];
 
@@ -27,7 +27,7 @@ const About = () => {
             <div className="relative">
               <div className="h-32 w-32 overflow-hidden rounded-full border-4 border-primary shadow-strong">
                 <img
-                  src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop"
+                  src="https://i.ibb.co.com/hF8XRFf3/wildan.png"
                   alt="Profile"
                   className="h-full w-full object-cover"
                 />
@@ -40,7 +40,7 @@ const About = () => {
             About Me
           </h1>
           <p className="mt-4 text-xl text-muted-foreground">
-            Full Stack Developer | Game Creator | App Builder
+            Full Stack Developer | Game Creator | Content Creator
           </p>
         </div>
 
@@ -53,22 +53,15 @@ const About = () => {
             </CardHeader>
             <CardContent className="space-y-4 text-muted-foreground">
               <p>
-                Hello! I'm a passionate developer who loves creating digital experiences
-                that make a difference. My journey in technology started with a curiosity
-                about how things work, and it has grown into a career spanning web development,
-                game creation, and mobile app development.
+                Halo! Saya adalah seorang pengembang yang bersemangat dalam menciptakan pengalaman digital yang bermakna. Perjalanan saya di dunia teknologi berawal dari rasa ingin tahu tentang bagaimana sesuatu bekerja, dan kini telah berkembang menjadi karier yang mencakup pengembangan web, pembuatan game, serta pengembangan aplikasi mobile.
               </p>
               <p>
-                I specialize in building modern web applications using React and TypeScript,
-                creating engaging games with Unity, and developing cross-platform mobile apps
-                with Flutter. Each project is an opportunity to learn something new and push
-                the boundaries of what's possible.
+                Saya memiliki keahlian dalam membangun aplikasi web modern menggunakan React dan TypeScript, menciptakan game interaktif dengan Unity, serta mengembangkan aplikasi lintas platform menggunakan Flutter. Setiap proyek bagi saya adalah kesempatan untuk belajar hal baru dan menantang batas kemampuan diri.
               </p>
               <p>
-                When I'm not coding, you'll find me exploring new technologies, contributing
-                to open-source projects, or sharing my knowledge through tutorials and blog posts.
-                I believe in continuous learning and giving back to the developer community.
+                Di luar dunia pemrograman, saya senang menjelajahi teknologi terbaru, berkontribusi pada proyek open-source, serta berbagi ilmu melalui tutorial dan tulisan di blog. Saya percaya bahwa pembelajaran tak pernah berhenti — dan berbagi pengetahuan adalah cara terbaik untuk tumbuh bersama komunitas pengembang.
               </p>
+              <p>Namaku Wildan Nur Awaludin From Toyamas Pendidikan Sekarang Sma di SMAN 1 CLURING Sekian Dan Terima kasih</p>
             </CardContent>
           </Card>
 
@@ -122,9 +115,8 @@ const About = () => {
                   className="hover:text-[#000000]"
                 >
                   <a
-                    href="https://tiktok.com"
+                    href="https://www.tiktok.com/@wildanelgato2"
                     target="_blank"
-                    rel="noopener noreferrer"
                   >
                     <FaTiktok className="mr-2 h-5 w-5" />
                     TikTok
