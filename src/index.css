@@ -157,6 +157,11 @@ All colors MUST be HSL.
   .animate-search-move {
     animation: searchMove 2s ease-in-out infinite;
   }
+
+  .marquee {
+    animation: marquee 10s linear infinite;
+    white-space: nowrap;
+  }
 }
 
 @keyframes fadeIn {
@@ -199,5 +204,14 @@ All colors MUST be HSL.
   }
   75% {
     transform: translateX(5px);
+  }
+}
+
+@keyframes marquee {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(-100%);
   }
 }

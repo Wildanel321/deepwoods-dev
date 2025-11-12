@@ -1,6 +1,6 @@
-# TODO: Add Moving Search Icon and Fade-in to 404 Page
+# TODO: Add Welcome Message and Comment Box to Home Page
 
-- [x] Add new keyframe animation for moving search icon in index.css
-- [x] Add utility class for the moving animation in index.css
-- [x] Update NotFound.tsx to apply fade-in animation to the main container
-- [x] Update NotFound.tsx to apply moving animation to the Search icon
+- [x] Add marquee animation CSS in src/index.css
+- [x] Add welcome section with animated text in src/pages/Home.tsx
+- [x] Add comment box form in the same section
+- [x] Test the implementation (server running at http://localhost:8080/)

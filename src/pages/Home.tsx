@@ -13,18 +13,21 @@ const Home = () => {
       description: "Learn the fundamentals of building modern web applications with React and TypeScript.",
       category: "Web",
       slug: "react-typescript-basics",
+      link: "https://example.com/react-typescript",
     },
     {
       title: "Unity Game Development Essentials",
       description: "Master the core concepts of game development using Unity engine and C#.",
       category: "Game",
       slug: "unity-essentials",
+      link: "https://example.com/unity-essentials",
     },
     {
       title: "Building Mobile Apps with Flutter",
       description: "Create beautiful cross-platform mobile applications using Flutter framework.",
       category: "App",
       slug: "flutter-mobile-apps",
+      link: "https://example.com/flutter-mobile-apps",
     },
   ];
 
@@ -43,6 +46,36 @@ const Home = () => {
   return (
     <div className="min-h-screen">
       <Hero />
+
+      {/* Welcome Message Section */}
+      <section className="py-8 bg-gradient-forest text-primary-foreground">
+        <div className="container mx-auto px-4">
+          <div className="overflow-hidden">
+            <h2 className="text-2xl md:text-3xl font-bold marquee">
+              Selamat Datang Pengunjung Terhormat • Welcome Dear Visitor • ようこそ • Bienvenido • Willkommen
+            </h2>
+          </div>
+        </div>
+      </section>
+
+      {/* Comment Box Section */}
+      <section className="py-16 bg-muted/50">
+        <div className="container mx-auto px-4">
+          <div className="mx-auto max-w-2xl">
+            <h3 className="text-2xl font-bold text-center mb-8">Berikan Ulasan atau Pertanyaan</h3>
+            <form className="space-y-4">
+              <textarea
+                placeholder="Tulis ulasan atau pertanyaan Anda di sini..."
+                className="w-full p-4 border border-input rounded-lg resize-none focus:ring-2 focus:ring-ring focus:outline-none"
+                rows={5}
+              />
+              <Button type="submit" className="w-full">
+                Kirim
+              </Button>
+            </form>
+          </div>
+        </div>
+      </section>
 
       {/* Featured Blog Posts Section */}
       <section className="py-16 md:py-24">
