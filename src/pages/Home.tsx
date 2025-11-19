@@ -1,20 +1,67 @@
+import React, { useEffect } from "react";
 import Hero from "@/components/Hero";
 import BlogCard from "@/components/BlogCard";
 import ProjectCard from "@/components/ProjectCard";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
-import { ArrowRight } from "lucide-react
+import { ArrowRight } from "lucide-react";
 import OrbitText from "@/components/OrbitText";
 
-<OrbitText 
-  text="Welcome To My Blog" 
-  size={26}
-  diameter={12}
-  letterSpacing={5}
-  rotation={0.4}
-  speed={0.3}
-  color="#00FFCC"
-/>
+const leaves = [
+  "https://i.ibb.co.com/MxcDQf2F/meteor.png",
+  "https://i.ibb.co.com/MxcDQf2F/meteor.png",
+  "https://i.ibb.co.com/MxcDQf2F/meteor.png",
+];
+
+const FallingLeaves: React.FC = () => {
+  useEffect(() => {
+    const container = document.createElement("div");
+    container.style.position = "fixed";
+    container.style.top = "0";
+    container.style.left = "0";
+    container.style.width = "100%";
+    container.style.height = "100%";
+    container.style.pointerEvents = "none";
+    container.style.overflow = "hidden";
+    container.style.zIndex = "50"; // adjust kalau mau di depan belakang
+    document.body.appendChild(container);
+
+    const createLeaf = () => {
+      const leaf = document.createElement("img");
+      leaf.src = leaves[Math.floor(Math.random() * leaves.length)];
+      leaf.style.position = "absolute";
+      leaf.style.top = "-10%";
+      leaf.style.left = Math.random() * 100 + "%";
+      leaf.style.width = Math.random() * 50 + 40 + "px";
+      leaf.style.opacity = (Math.random() * 0.5 + 0.5).toString();
+
+      const duration = Math.random() * 5 + 5;
+      const horizontalMove = Math.random() * 100 - 50;
+
+      leaf.style.transition = `transform ${duration}s linear, top ${duration}s linear`;
+
+      container.appendChild(leaf);
+
+      // animate
+      requestAnimationFrame(() => {
+        leaf.style.top = "110%";
+        leaf.style.transform = `translateX(${horizontalMove}px) rotate(${Math.random() * 360}deg)`;
+      });
+
+      // remove leaf when animation done
+      setTimeout(() => leaf.remove(), duration * 1000);
+    };
+
+    const interval = setInterval(createLeaf, 600);
+
+    return () => {
+      clearInterval(interval);
+      container.remove();
+    };
+  }, []);
+
+  return null;
+};
 
 const Home = () => {
   // Mock data for featured blog posts
@@ -62,67 +109,20 @@ const Home = () => {
       <section className="py-8 bg-gradient-forest text-primary-foreground">
         <div className="container mx-auto px-4">
           <div className="overflow-hidden">
-            <h2 className="text-2xl md:text-3xl font-bold marquee">
-              Selamat Datang Pengunjung Terhormat • Welcome Dear Visitor • ようこそ • Bienvenido • Willkommen
-            </h2>
+            <OrbitText
+              text="Welcome To My Blog"
+              size={26}
+              diameter={12}
+              letterSpacing={5}
+              rotation={0.4}
+              speed={0.3}
+              color="#00FFCC"
+            />
           </div>
         </div>
       </section>
-const leaves = [
-  "/leaf1.png",
-  "/leaf2.png",
-  "/leaf3.png",
-];
 
-const FallingLeaves: React.FC = () => {
-  useEffect(() => {
-    const container = document.createElement("div");
-    container.style.position = "fixed";
-    container.style.top = "0";
-    container.style.left = "0";
-    container.style.width = "100%";
-    container.style.height = "100%";
-    container.style.pointerEvents = "none";
-    container.style.overflow = "hidden";
-    container.style.zIndex = "50"; // adjust kalau mau di depan belakang
-    document.body.appendChild(container);
-
-    const createLeaf = () => {
-      const leaf = document.createElement("img");
-      leaf.src = leaves[Math.floor(Math.random() * leaves.length)];
-      leaf.style.position = "absolute";
-      leaf.style.top = "-10%";
-      leaf.style.left = Math.random() * 100 + "%";
-      leaf.style.width = Math.random() * 30 + 20 + "px"; 
-      leaf.style.opacity = (Math.random() * 0.5 + 0.5).toString();
-
-      const duration = Math.random() * 5 + 5; 
-      const horizontalMove = Math.random() * 100 - 50;
-
-      leaf.style.transition = `transform ${duration}s linear, top ${duration}s linear`;
-
-      container.appendChild(leaf);
-
-      // animate
-      requestAnimationFrame(() => {
-        leaf.style.top = "110%";
-        leaf.style.transform = `translateX(${horizontalMove}px) rotate(${Math.random() * 360}deg)`;
-      });
-
-      // remove leaf when animation done
-      setTimeout(() => leaf.remove(), duration * 1000);
-    };
-
-    const interval = setInterval(createLeaf, 600);
-
-    return () => {
-      clearInterval(interval);
-      container.remove();
-    };
-  }, []);
-
-  return null;
-};
+      <FallingLeaves />
 
       {/* Comment Box Section */}
       <section className="py-16 bg-muted/50">
