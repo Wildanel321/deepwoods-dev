@@ -4,6 +4,21 @@ import ProjectCard from "@/components/ProjectCard";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
+import OrbitText from "@/components/OrbitText";
+
+return (
+  <div className="min-h-screen">
+    <Hero />
+    <OrbitText 
+      words={[
+        "Selamat Datang",
+        "Admin Ganteng",
+        "Web Dev",
+        "Aplikasi Dev",
+      ]}
+      radius={140}
+      speed={0.03}
+    />
 
 const Home = () => {
   // Mock data for featured blog posts
