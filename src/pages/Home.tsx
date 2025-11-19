@@ -57,6 +57,61 @@ const Home = () => {
           </div>
         </div>
       </section>
+const leaves = [
+  "/leaf1.png",
+  "/leaf2.png",
+  "/leaf3.png",
+];
+
+const FallingLeaves: React.FC = () => {
+  useEffect(() => {
+    const container = document.createElement("div");
+    container.style.position = "fixed";
+    container.style.top = "0";
+    container.style.left = "0";
+    container.style.width = "100%";
+    container.style.height = "100%";
+    container.style.pointerEvents = "none";
+    container.style.overflow = "hidden";
+    container.style.zIndex = "50"; // adjust kalau mau di depan belakang
+    document.body.appendChild(container);
+
+    const createLeaf = () => {
+      const leaf = document.createElement("img");
+      leaf.src = leaves[Math.floor(Math.random() * leaves.length)];
+      leaf.style.position = "absolute";
+      leaf.style.top = "-10%";
+      leaf.style.left = Math.random() * 100 + "%";
+      leaf.style.width = Math.random() * 30 + 20 + "px"; 
+      leaf.style.opacity = (Math.random() * 0.5 + 0.5).toString();
+
+      const duration = Math.random() * 5 + 5; 
+      const horizontalMove = Math.random() * 100 - 50;
+
+      leaf.style.transition = `transform ${duration}s linear, top ${duration}s linear`;
+
+      container.appendChild(leaf);
+
+      // animate
+      requestAnimationFrame(() => {
+        leaf.style.top = "110%";
+        leaf.style.transform = `translateX(${horizontalMove}px) rotate(${Math.random() * 360}deg)`;
+      });
+
+      // remove leaf when animation done
+      setTimeout(() => leaf.remove(), duration * 1000);
+    };
+
+    const interval = setInterval(createLeaf, 600);
+
+    return () => {
+      clearInterval(interval);
+      container.remove();
+    };
+  }, []);
+
+  return null;
+};
 
       {/* Comment Box Section */}
       <section className="py-16 bg-muted/50">
