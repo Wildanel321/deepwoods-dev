@@ -3,22 +3,18 @@ import BlogCard from "@/components/BlogCard";
 import ProjectCard from "@/components/ProjectCard";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
-import { ArrowRight } from "lucide-react";
-import OrbitText from "@/components/OrbitText";
+import { ArrowRight } from "lucide-react
+import OrbitCircleText from "@/components/OrbitCircleText";
 
-return (
-  <div className="min-h-screen">
-    <Hero />
-    <OrbitText 
-      words={[
-        "Selamat Datang",
-        "Admin Ganteng",
-        "Web Dev",
-        "Aplikasi Dev",
-      ]}
-      radius={140}
-      speed={0.03}
-    />
+<OrbitCircleText 
+  text="Welcome To My Blog" 
+  size={26}
+  diameter={12}
+  letterSpacing={5}
+  rotation={0.4}
+  speed={0.3}
+  color="#00FFCC"
+/>
 
 const Home = () => {
   // Mock data for featured blog posts
