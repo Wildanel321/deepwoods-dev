@@ -1,15 +1,23 @@
 import React, { useEffect, useRef } from "react";
 
-interface OrbitTextProps {
-  words?: string[];
-  radius?: number;
+interface OrbitCircleTextProps {
+  text?: string;
+  size?: number;
+  letterSpacing?: number;
+  diameter?: number;
+  rotation?: number;
   speed?: number;
+  color?: string;
 }
 
-const OrbitText: React.FC<OrbitTextProps> = ({
-  words = ["WELCOME", "ADMIN GANTENG", "DEVELOPER", "FOREST WEB"],
-  radius = 120,
-  speed = 0.02,
+const OrbitCircleText: React.FC<OrbitCircleTextProps> = ({
+  text = "Welcome To My Blog",
+  size = 24,
+  letterSpacing = 5,
+  diameter = 10,
+  rotation = 0.4,
+  speed = 0.3,
+  color = "#4679BD",
 }) => {
   const wrapRef = useRef<HTMLDivElement | null>(null);
 
@@ -17,80 +25,93 @@ const OrbitText: React.FC<OrbitTextProps> = ({
     const wrap = wrapRef.current;
     if (!wrap) return;
 
-    const items = Array.from(wrap.children) as HTMLDivElement[];
+    const msg = text.split("");
+    const n = msg.length - 1;
+    const a = Math.round(size * diameter * 0.208333);
 
-    let mouseX = window.innerWidth / 2;
-    let mouseY = window.innerHeight / 2;
-    let centerX = mouseX;
-    let centerY = mouseY;
-    let baseAngle = 0;
+    let currStep = 20;
+    let ymouse = a * 0.75 + 20;
+    let xmouse = a * 2 + 20;
 
-    const EASE = 0.15;
+    const y: number[] = [];
+    const x: number[] = [];
+    const Y: number[] = [];
+    const X: number[] = [];
 
-    // TRACK MOUSE
-    const handleMove = (e: MouseEvent) => {
-      mouseX = e.clientX;
-      mouseY = e.clientY;
+    const chars: HTMLDivElement[] = [];
+
+    // create letters
+    msg.forEach((letter, i) => {
+      const div = document.createElement("div");
+      div.style.position = "absolute";
+      div.style.height = `${a}px`;
+      div.style.width = `${a}px`;
+      div.style.textAlign = "center";
+      div.style.fontSize = `${size}px`;
+      div.style.fontWeight = "bold";
+      div.style.fontFamily = "Comic Sans MS, Arial";
+      div.style.color = color;
+      div.innerText = letter;
+
+      wrap.appendChild(div);
+      chars.push(div);
+
+      y[i] = x[i] = Y[i] = X[i] = 0;
+    });
+
+    // mouse tracker
+    const mouseMove = (e: MouseEvent) => {
+      xmouse = e.clientX;
+      ymouse = e.clientY;
     };
-    window.addEventListener("mousemove", handleMove);
 
-    const animate = () => {
-      centerX += (mouseX - centerX) * EASE;
-      centerY += (mouseY - centerY) * EASE;
+    window.addEventListener("mousemove", mouseMove);
 
-      baseAngle += speed;
-      const n = items.length;
+    const makeCircle = () => {
+      currStep -= rotation;
 
-      items.forEach((el, i) => {
-        const angle = (i / n) * Math.PI * 2 + baseAngle;
+      for (let i = n; i >= 0; i--) {
+        chars[i].style.top =
+          Math.round(y[i] + a * Math.sin((currStep + i) / letterSpacing) * 0.75 - 15) + "px";
 
-        const x = centerX + Math.cos(angle) * radius;
-        const y = centerY + Math.sin(angle) * radius;
-
-        const rot = angle * (180 / Math.PI) + 90;
-
-        el.style.left = `${x}px`;
-        el.style.top = `${y}px`;
-        el.style.transform = `translate(-50%, -50%) rotate(${rot}deg)`;
-      });
-
-      requestAnimationFrame(animate);
+        chars[i].style.left =
+          Math.round(x[i] + a * Math.cos((currStep + i) / letterSpacing) * 2) + "px";
+      }
     };
 
-    animate();
+    const drag = () => {
+      y[0] = Y[0] += (ymouse - Y[0]) * speed;
+      x[0] = X[0] += (xmouse - X[0]) * speed;
+
+      for (let i = n; i > 0; i--) {
+        y[i] = Y[i] += (y[i - 1] - Y[i]) * speed;
+        x[i] = X[i] += (x[i - 1] - X[i]) * speed;
+      }
+
+      makeCircle();
+      requestAnimationFrame(drag);
+    };
+
+    drag();
 
     return () => {
-      window.removeEventListener("mousemove", handleMove);
+      window.removeEventListener("mousemove", mouseMove);
+      chars.forEach((el) => el.remove());
     };
-  }, [radius, speed]);
+  }, [text, size, letterSpacing, diameter, rotation, speed, color]);
 
   return (
     <div
       ref={wrapRef}
       style={{
         position: "fixed",
-        inset: 0,
+        top: 0,
+        left: 0,
         pointerEvents: "none",
-        zIndex: 9999,
+        zIndex: 3000,
       }}
-    >
-      {words.map((w, i) => (
-        <div
-          key={i}
-          style={{
-            position: "absolute",
-            color: "white",
-            fontWeight: "bold",
-            fontSize: "18px",
-            textShadow: "0 0 8px #00ffcc",
-            userSelect: "none",
-          }}
-        >
-          {w}
-        </div>
-      ))}
-    </div>
+    />
   );
 };
 
-export default OrbitText;
+export default OrbitCircleText;
