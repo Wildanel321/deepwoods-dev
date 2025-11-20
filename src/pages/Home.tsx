@@ -67,7 +67,7 @@ const WelcomeMarquee: React.FC = () => {
     <div className="w-full overflow-hidden py-4">
       {/* Marquee Indonesia */}
       <div className="marquee-container mb-3">
-        <div className="marquee marquee-indonesia text-lg font-bold text-primary">
+        <div className="marquee marquee-slow text-lg font-bold text-primary">
           🎉 Selamat Datang di Blog Saya! ✨ Selamat Datang di Blog Saya! ✨ Selamat Datang di Blog Saya! ✨
         </div>
       </div>
