@@ -23,7 +23,7 @@ const FallingLeaves: React.FC = () => {
     container.style.height = "100%";
     container.style.pointerEvents = "none";
     container.style.overflow = "hidden";
-    container.style.zIndex = "50"; // adjust kalau mau di depan belakang
+    container.style.zIndex = "50";
     document.body.appendChild(container);
 
     const createLeaf = () => {
@@ -42,13 +42,11 @@ const FallingLeaves: React.FC = () => {
 
       container.appendChild(leaf);
 
-      // animate
       requestAnimationFrame(() => {
         leaf.style.top = "110%";
         leaf.style.transform = `translateX(${horizontalMove}px) rotate(${Math.random() * 360}deg)`;
       });
 
-      // remove leaf when animation done
       setTimeout(() => leaf.remove(), duration * 1000);
     };
 
@@ -63,8 +61,42 @@ const FallingLeaves: React.FC = () => {
   return null;
 };
 
+// Komponen Marquee untuk Selamat Datang
+const WelcomeMarquee: React.FC = () => {
+  return (
+    <div className="w-full overflow-hidden py-4">
+      {/* Marquee Indonesia */}
+      <div className="marquee-container mb-3">
+        <div className="marquee marquee-indonesia text-lg font-bold text-primary">
+          🎉 Selamat Datang di Blog Saya! ✨ Selamat Datang di Blog Saya! ✨ Selamat Datang di Blog Saya! ✨
+        </div>
+      </div>
+      
+      {/* Marquee Arabic */}
+      <div className="marquee-container mb-3">
+        <div className="marquee marquee-slow text-lg font-bold text-primary">
+          🎊 أهلا بك في مدونتي! 🌟 أهلا بك في مدونتي! 🌟 أهلا بك في مدونتي! 🌟
+        </div>
+      </div>
+      
+      {/* Marquee Japanese */}
+      <div className="marquee-container mb-3">
+        <div className="marquee marquee-fast text-lg font-bold text-primary">
+          🎯 私のブログへようこそ！ 💫 私のブログへようこそ！ 💫 私のブログへようこそ！ 💫
+        </div>
+      </div>
+      
+      {/* Marquee Russian */}
+      <div className="marquee-container">
+        <div className="marquee text-lg font-bold text-primary">
+          🎈 Добро пожаловать в мой блог! ⭐ Добро пожаловать в мой блог! ⭐ Добро пожаловать в мой блог! ⭐
+        </div>
+      </div>
+    </div>
+  );
+};
+
 const Home = () => {
-  // Mock data for featured blog posts
   const featuredPosts = [
     {
       title: "Getting Started with React and TypeScript",
@@ -89,7 +121,6 @@ const Home = () => {
     },
   ];
 
-  // Mock data for featured projects
   const featuredProjects = [
     {
       title: "Website Kelas",
@@ -105,10 +136,13 @@ const Home = () => {
     <div className="min-h-screen">
       <Hero />
 
-      {/* Welcome Message Section */}
+      {/* Welcome Message Section dengan Marquee */}
       <section className="py-8 bg-gradient-forest text-primary-foreground">
         <div className="container mx-auto px-4">
-          <div className="overflow-hidden">
+          {/* Marquee Selamat Datang */}
+          <WelcomeMarquee />
+          
+          <div className="overflow-hidden mt-6">
             <OrbitText
               text="Welcome To My Blog"
               size={26}
@@ -221,6 +255,55 @@ const Home = () => {
           </div>
         </div>
       </section>
+
+      {/* Tambahkan CSS untuk marquee */}
+      <style jsx>{`
+        .marquee-container {
+          overflow: hidden;
+          white-space: nowrap;
+          position: relative;
+          background-color: rgba(255, 255, 255, 0.1);
+          border-radius: 8px;
+          padding: 12px 0;
+          margin-bottom: 8px;
+        }
+
+        .marquee {
+          display: inline-block;
+          padding-left: 100%;
+          animation: marquee 15s linear infinite;
+        }
+
+        .marquee-slow {
+          animation: marquee 20s linear infinite;
+        }
+
+        .marquee-fast {
+          animation: marquee 10s linear infinite;
+        }
+
+        .marquee-indonesia {
+          animation: marquee-indonesia 18s linear infinite;
+        }
+
+        @keyframes marquee {
+          0% {
+            transform: translate(0, 0);
+          }
+          100% {
+            transform: translate(-100%, 0);
+          }
+        }
+
+        @keyframes marquee-indonesia {
+          0% {
+            transform: translate(100%, 0);
+          }
+          100% {
+            transform: translate(-100%, 0);
+          }
+        }
+      `}</style>
     </div>
   );
 };
