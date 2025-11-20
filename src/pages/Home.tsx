@@ -65,10 +65,10 @@ const FallingLeaves: React.FC = () => {
 const WelcomeMarquee: React.FC = () => {
   return (
     <div className="w-full overflow-hidden py-4">
-      {/* Marquee Indonesia */}
-      <div className="marquee-container mb-3">
-        <div className="marquee marquee-slow text-lg font-bold text-primary">
-          🎉 Selamat Datang di Blog Saya! ✨ Selamat Datang di Blog Saya! ✨ Selamat Datang di Blog Saya! ✨
+      {/* Marquee Indonesia - Memantul ke kanan dan kiri */}
+      <div className="marquee-bounce-container mb-3">
+        <div className="marquee-bounce text-xl font-bold text-yellow-400 bg-gradient-to-r from-red-500/20 to-blue-500/20 py-3 rounded-lg border-2 border-yellow-400/50 shadow-lg">
+          🎉 Selamat Datang di Blog Saya! ✨
         </div>
       </div>
       
@@ -282,8 +282,21 @@ const Home = () => {
           animation: marquee 10s linear infinite;
         }
 
-        .marquee-indonesia {
-          animation: marquee-indonesia 18s linear infinite;
+        .marquee-bounce-container {
+          overflow: hidden;
+          white-space: nowrap;
+          position: relative;
+          background: linear-gradient(45deg, rgba(255, 215, 0, 0.2), rgba(255, 69, 0, 0.2));
+          border-radius: 8px;
+          padding: 12px 0;
+          margin-bottom: 8px;
+        }
+
+        .marquee-bounce {
+          display: inline-block;
+          text-align: center;
+          animation: marquee-bounce 3s ease-in-out infinite alternate;
+          width: 100%;
         }
 
         @keyframes marquee {
@@ -295,12 +308,12 @@ const Home = () => {
           }
         }
 
-        @keyframes marquee-indonesia {
+        @keyframes marquee-bounce {
           0% {
-            transform: translate(100%, 0);
+            transform: translateX(-20%);
           }
           100% {
-            transform: translate(-100%, 0);
+            transform: translateX(20%);
           }
         }
       `}</style>
