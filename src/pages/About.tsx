@@ -26,10 +26,7 @@ const About = () => {
           <div className="mb-8 flex justify-center">
             <div className="relative">
               <div className="h-32 w-32 overflow-hidden rounded-full border-4 border-primary shadow-strong">
-                <img
-                  src="https://i.ibb.co.com/hF8XRFf3/wildan.png"
-                  alt="Profile"
-                  className="h-full w-full object-cover"
+                <img src="https://i.ibb.co.com/Qv5JZNBy/IMG-20250912-WA0002-1.jpg" alt="IMG-20250912-WA0002-1"className="h-full w-full object-cover"
                 />
               </div>
               <div className="absolute -bottom-2 -right-2 h-12 w-12 rounded-full bg-gradient-forest shadow-elevated" />
